@@ -6,6 +6,8 @@ It is built atop GWT with the intention of using the same Java sources for both 
 
 It currently implements a somewhat clumsy syntactic menu UI, which is long overdue for replacement with an autocomplete-style or Dasher-style UI based on a combination of correct syntax info and 2nd or 3rd order markov prediction.
 
+The current form of this project is as 2 GWT/Eclipse projects, one of which depends upon the other.
+
 Premise #1: A touchscreen does not discriminate on method of input as strongly as a mouse/keyboard does. On my desktop, typing the word "desktop" is far more convenient than it would be for me to choose that word from a list of 20 words. On a virtual keyboard, it's the opposite. Not only do I lack the advantages of a querty keyboard, but selecting with my fingers is much smoother than the mouse would allow, provided the choices are sufficiently large.
 
 Premise #2: The interface adapts. We like this. The mobile phone will never be as good as the desktop for creating arbitrary text, because the keyboard is a device specifically tailored to the most generally usable character set on desktop computers. We can't beat that. We can, however, beat it in many particular use cases, because while the keyboard must satisfy generic use, the touchscreen can adapt itself even mid-word to whatever is happening right now.

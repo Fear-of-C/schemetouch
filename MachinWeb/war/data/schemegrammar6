@@ -1,0 +1,96 @@
+-expr: identifier | literal | application;;
+
+-nil: _fromclass <NilSyntax>;;
+
+-application: defined-syntax | procedure;;
+
+-procedure: baseprocedure | derivedprocedure;; 
+
+-baseprocedure: _fromclass <Procedure>;;
+
+-derivedprocedure: ; ["function" expr] ["argument" expr]*;
+
+-defined-syntax: _fromsyntax;;
+
+-identifier: _fromscope;;
+
+-literal: number | boolean | string | nil;;
+
+-string: _fromchars "startquote" "\"" 1 "stringchar" "." -1 "endquote" "\"" 1 _end;;
+
+-boolean: "#t" | "#f";;
+
+-number: decimal | integer | hex | octal | binary | zero;;
+
+-decimal: _fromchars "initial" "[0-9\-]" 1 "digit" "[0-9]" -1 "decimal" "\." 1 "after_decimal" "[0-9]" -1 _end;;
+
+-zero: _fromchars "zero" "0" 1 _end;;
+
+-integer: _fromchars "initial" "[1-9\-]" 1 "digit "[0-9]" -1 _end;;
+
+-hex: _fromchars "specified" "#" 1 "specifier" "x" 1 "initial" "[0-9A-Fa-f]" 1 "digit "[0-9A-Fa-f]" -1 _end;;
+
+-octal: _fromchars "specified" "#" 1 "specifier" "o" 1 "initial" "[0-7]" 1 "digit" "[0-7]" -1 _end;;
+
+-binary: _fromchars "specified" "#" 1 "specifier" "b" 1 "initial" "[01]" 1 "digit" "[01]" -1 _end;;
+
+-newSymbol: _fromchars "initial" "[\w!\$%&\*/<=>?\^_~]" 1 "subsequent" "[\w!\$%&\*/<=>?\^~>\+\-@]" -1 _end;;
+
+define: ; [_declscope "variable" newSymbol] [_by "variable" "by" expr] | [_declscope "func" _declare "arg" "header" defineargs] [_scope "arg" "body" expr]*;
+
+-defineargs: ; ["func" newSymbol] ["arg" newSymbol]*;
+
+lambda: ; [_declare "argument" "args" argList] [_scope "argument" "function" expr] | [_declare "argument" "argument" newSymbol] [_scope "argument" "function" expr];
+
+-argList: ; ["argument" newSymbol]*;
+
+if: ; ["if" expr] ["then" expr] ["else" expr] | ["if" expr] ["then" expr];
+
+quote: ; ["quoted" quoted]*;
+
+-quoted: qexpr | newSymbol;;
+
+-qexpr: identifier | literal | qlist | nil;;
+
+-qlist: ; ["quoted" quoted]*;
+
+quasiquote: ; ["quasiquoted" quasiquoted]*;
+
+-quasiquoted: unquote | unquote-splicing | qqexpr | newSymbol;
+
+-qqexpr: identifier | literal | qqlist | nil;;
+
+-qqlist: ; ["quoted" quasiquoted]*;
+
+unquote: ; ["unquoted" expr];
+
+unquote-splicing: ; ["spliced" expr];
+
+set!: ; [_altervar "var" identifier] [_by "var" "by" expr];
+
+-body: ; ["statement" expr]*;
+
+cond: ; ["clause" condclause]* ["else" condelse] | ["clause" condclause]*;
+
+-condclause: ; ["test" expr] ["result" expr]*;
+
+-condelse: ; ["else" "else"] ["result" expr]*;
+
+let: ; [_declare "letvar" "decls" letscope] [_scope "letvar" "statement" expr]*;
+
+letrec: ; [_declare "letvar" _scope "letvar" "decls" letrecscope] [_scope "letvar" "statement" expr]*;
+
+-letrecscope: ; ["letdecl" letrecdecl]*;
+
+-letrecdecl: ; [_declscope "letvar" newSymbol] [_by "letvar" "as" expr];
+
+-letscope: ; ["letdecl" letdecl]*;
+
+-letdecl: ; ["letvar" newSymbol] [_by "letvar" "by" expr];
+
+begin: ; ["statement" expr]*;
+
+and: ; ["boolean" expr]*;
+
+or: ; ["boolean" expr]*;
+
