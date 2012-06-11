@@ -1,0 +1,24 @@
+This is the Scheme Touch project, discontinued in April of 2011 and potentially revivable with upswing in tablet computing.
+
+Scheme Touch is a test interface for how one might go about programming on touchscreens.
+
+It is built atop GWT with the intention of using the same Java sources for both native Android and Javascript.  No iPad/iPhone version is planned, because Apple's policies prevent downloading of executable code, severely limiting the app's potentail functionality on that platform.
+
+It currently implements a somewhat clumsy syntactic menu UI, which is long overdue for replacement with an autocomplete-style or Dasher-style UI based on a combination of correct syntax info and 2nd or 3rd order markov prediction.
+
+Premise #1: A touchscreen does not discriminate on method of input as strongly as a mouse/keyboard does. On my desktop, typing the word "desktop" is far more convenient than it would be for me to choose that word from a list of 20 words. On a virtual keyboard, it's the opposite. Not only do I lack the advantages of a querty keyboard, but selecting with my fingers is much smoother than the mouse would allow, provided the choices are sufficiently large.
+
+Premise #2: The interface adapts. We like this. The mobile phone will never be as good as the desktop for creating arbitrary text, because the keyboard is a device specifically tailored to the most generally usable character set on desktop computers. We can't beat that. We can, however, beat it in many particular use cases, because while the keyboard must satisfy generic use, the touchscreen can adapt itself even mid-word to whatever is happening right now.
+
+Premise #3: When the syntax is simple, the computer knows best. Scheme code follows an incredibly simple grammar, so we can usually predict what tokens could exist at any given point. Unlike the iPhone autocorrect, Scheme Touch is exact and complete (requires no typing in most cases). Not only does this allow us to exploit the adaptable touchscreen mechanic of premise #2, but it changes the recall heavy task of knowing a language to the recognition based task of figuring out intent. We hope this will be very useful to beginners, and to those who are extremely tired or drunk.
+
+Known Issues
+
+    There is actually no way to edit text.
+    There is no way to save files or even efficiently copy/paste them between this and anything else. This will be fixed soon. Please do not do any serious coding in this preview edition.
+    Copy/Paste is wonky. It was implemented as a last-minute hack.
+    The language supported by the editor is not quite Scheme and is not quite the same language supported by the interpreter.
+    The only language even somewhat supported is Scheme.
+    Website may not be well tuned to mobile screen sizes. If you are using a mobile device and it just isn't working out, please contact us.
+    Release is pre-MVP pre-alpha. It breaks about as often as it works.
+
