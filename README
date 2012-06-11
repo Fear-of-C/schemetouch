@@ -1,5 +1,7 @@
 This is the Scheme Touch project, discontinued in April of 2011 and potentially revivable with upswing in tablet computing.
 
+All source here should be considered licensed under the AGPL version 3.0 (http://www.gnu.org/licenses/agpl-3.0.html) unless another licensed is specified in the file.
+
 Scheme Touch is a test interface for how one might go about programming on touchscreens.
 
 It is built atop GWT with the intention of using the same Java sources for both native Android and Javascript.  No iPad/iPhone version is planned, because Apple's policies prevent downloading of executable code, severely limiting the app's potentail functionality on that platform.
@@ -8,7 +10,7 @@ It currently implements a somewhat clumsy syntactic menu UI, which is long overd
 
 The current form of this project is as 2 GWT/Eclipse projects, one of which depends upon the other.
 
-A live demo exists at http://fearsoftware.webfactional.com/machination/schemetouch/SchemeTouch.html
+The demo video shows a single session creating a simple program on an HTC HD2 running a hacked version of Android 2.2  A live demo exists at http://fearsoftware.webfactional.com/machination/schemetouch/SchemeTouch.html
 
 Premise #1: A touchscreen does not discriminate on method of input as strongly as a mouse/keyboard does. On my desktop, typing the word "desktop" is far more convenient than it would be for me to choose that word from a list of 20 words. On a virtual keyboard, it's the opposite. Not only do I lack the advantages of a querty keyboard, but selecting with my fingers is much smoother than the mouse would allow, provided the choices are sufficiently large.
 
