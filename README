@@ -4,7 +4,7 @@ All source here should be considered licensed under the AGPL version 3.0 (http:/
 
 Scheme Touch is a test interface for how one might go about programming on touchscreens.
 
-It is built atop GWT with the intention of using the same Java sources for both native Android and Javascript.  No native iPad/iPhone version is planned, because Apple's policies prevent downloading of executable code, severely limiting the app's potentail functionality on that platform.  The web version should therefore make iOS a priority.
+It is built atop GWT with the intention of using the same Java sources for both native Android and Javascript.  No native iPad/iPhone version is planned, because Apple's policies prevent downloading of executable code, severely limiting the app's potential functionality on that platform.  The web version should therefore make iOS a priority.
 
 It currently implements a somewhat clumsy syntactic menu UI, which is long overdue for replacement with an autocomplete-style or Dasher-style UI based on a combination of correct syntax info and 2nd or 3rd order markov prediction.
 
